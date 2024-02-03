@@ -1,42 +1,18 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:night_owl/flutter/packages/flutter/lib/services.dart';
+import 'package:flutter/services.dart';
 import 'package:audioplayers/audioplayers.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        textTheme: Theme.of(context).textTheme.apply(bodyColor: Colors.white),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class callScreen extends StatefulWidget {
+  const callScreen({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<callScreen> createState() => _MyCallScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  AudioPlayer audioPlayer = AudioPlayer();
-  AudioCache cache = AudioCache();
+class _MyCallScreenState extends State<callScreen> {
+  final audioPlayer = AudioPlayer();
   Color _backgroundColor = Color(0xFF163345);
   Random random = Random();
   String _caller = "";
@@ -50,6 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
     "Amanda",
   ];
   bool _ringing = false;
+  bool _startScreen = true;
 
   @override
   void initState() {
@@ -69,6 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
       prefix = pre.toString();
       lastFour = lf.toString();
       _caller = callerList[callerIndex];
+      _startScreen = false;
     });
     _ring();
   }
@@ -76,20 +54,29 @@ class _MyHomePageState extends State<MyHomePage> {
   void _ring() async {
     _ringing = true;
     do {
-      await audioPlayer.play(AssetSource('7120-download-iphone-6-original-ringtone-42676.mp3'));
+      await audioPlayer.play(AssetSource(
+          'NightOwl/night_owl/assets/7120-download-iphone-6-original-ringtone-42676.mp3'));
       await Future.delayed(Duration(seconds: 3));
     } while (_ringing);
   }
 
-  void _stopRing(){
+  void _stopRing() {
     audioPlayer?.stop();
     _ringing = false;
+  }
+
+  void _reset() {
+    audioPlayer?.stop();
+    _ringing = false;
+    setState(() {
+      _startScreen = true;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _backgroundColor,
+      backgroundColor: _startScreen ? Colors.black : _backgroundColor,
       body: Stack(
         children: [
           Column(
@@ -130,6 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       GestureDetector(
                         onTap: _stopRing,
+                        onDoubleTap: _reset,
                         child: FloatingActionButton(
                             child: Icon(Icons.call_end, size: 34),
                             backgroundColor: Colors.red,
@@ -152,9 +140,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
               SizedBox(height: 60),
-              ElevatedButton(child: Text("TEMP START"), onPressed: _start),
             ],
           ),
+          if (_startScreen)
+            Column(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Container(color: Colors.black),
+                ),
+                Expanded(
+                  flex: 0,
+                  child: GestureDetector(
+                    onLongPress: _start,
+                    child: Container(
+                        width: double.infinity,
+                        height: 60,
+                        color: Colors.grey[900]),
+                  ),
+                )
+              ],
+            )
         ],
       ),
     );
