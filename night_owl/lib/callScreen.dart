@@ -27,7 +27,6 @@ class _MyCallScreenState extends State<callScreen> {
     "Amanda",
   ];
   bool _ringing = false;
-  bool _startScreen = true;
 
   @override
   void initState() {
@@ -41,6 +40,7 @@ class _MyCallScreenState extends State<callScreen> {
   }
 
   void _start() {
+    print("started!");
     int callerIndex = random.nextInt(callerList.length);
     int pre = random.nextInt(899) + 100;
     int lf = random.nextInt(8999) + 1000;
@@ -48,7 +48,6 @@ class _MyCallScreenState extends State<callScreen> {
       prefix = pre.toString();
       lastFour = lf.toString();
       _caller = callerList[callerIndex];
-      _startScreen = false;
     });
     _ring();
   }
@@ -65,22 +64,20 @@ class _MyCallScreenState extends State<callScreen> {
   }
 
   void _stopRing() {
-    player?.stop();
+    player.stop();
     _ringing = false;
   }
 
   void _reset() {
-    player?.stop();
+    player.stop();
     _ringing = false;
-    setState(() {
-      _startScreen = true;
-    });
   }
 
   @override
   Widget build(BuildContext context) {
+    print("building?!");
     return Scaffold(
-      backgroundColor: _startScreen ? Colors.black : _backgroundColor,
+      backgroundColor: _backgroundColor,
       body: Stack(
         children: [
           Column(
@@ -123,10 +120,11 @@ class _MyCallScreenState extends State<callScreen> {
                         onTap: _stopRing,
                         onDoubleTap: _reset,
                         child: FloatingActionButton(
+                            heroTag: "btn1",
                             child: Icon(Icons.call_end, size: 34),
                             backgroundColor: Colors.red,
                             shape: CircleBorder(),
-                            onPressed: null),
+                            onPressed: () => Navigator.pop(context)),
                       ),
                       Text("Decline", style: TextStyle(color: Colors.white)),
                     ],
@@ -135,10 +133,11 @@ class _MyCallScreenState extends State<callScreen> {
                     children: [
                       GestureDetector(
                         child: FloatingActionButton(
+                            heroTag: "btn2",
                             child: Icon(Icons.phone, size: 34),
                             backgroundColor: Colors.green,
                             shape: CircleBorder(),
-                            onPressed: null),
+                            onPressed: () => Navigator.pop(context)),
                       ),
                       Text("Accept", style: TextStyle(color: Colors.white)),
                     ],

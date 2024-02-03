@@ -25,6 +25,10 @@ class _MyStartScreenState extends State<startScreen> {
                 flex: 0,
                 child: GestureDetector(
                   onLongPress: () {
+                    print("pressed!");
+                    Navigator.pop(context);
+                    //pops so that when you click on accept / decline, you return to profile
+                    //remove this if you want to return to black screen
                     Navigator.push(
                         context,
                         MaterialPageRoute(

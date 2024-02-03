@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:night_owl/grid_view.dart';
+import 'package:night_owl/profile_page.dart';
 
 class ProfileGrid extends StatelessWidget {
   @override
@@ -18,9 +19,15 @@ class ProfileGrid extends StatelessWidget {
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 12.0),
-              child: Icon(
-                Icons.menu,
-                color: Colors.black,
+              child: IconButton(
+                icon: Icon(Icons.menu, color: Colors.black),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProfilePage(),
+                      ));
+                },
               ),
             ),
           ],

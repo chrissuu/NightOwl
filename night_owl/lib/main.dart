@@ -7,6 +7,7 @@ import 'package:night_owl/signup.dart';
 import 'package:night_owl/upload_photo.dart';
 import 'package:night_owl/start_screen.dart';
 import 'package:night_owl/profile_grid.dart';
+import 'package:night_owl/feed_screen_notif.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ProfileGrid(),
+      home: LoginPage(),
     );
   }
 }

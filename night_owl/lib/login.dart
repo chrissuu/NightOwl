@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:night_owl/profile_page.dart';
 import 'package:night_owl/feed.dart';
+import 'package:night_owl/nav_bar.dart';
 
 void main() {
   runApp(const LoginPage());
@@ -76,7 +77,7 @@ class LoginPage extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => FeedScreen(),
+                  builder: (context) => BottomNavigationBarExample(),
                 ));
           },
           style: ElevatedButton.styleFrom(
