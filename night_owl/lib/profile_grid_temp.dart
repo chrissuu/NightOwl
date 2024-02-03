@@ -5,9 +5,7 @@ import 'package:night_owl/profile_page.dart';
 class ProfileGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 1,
-      child: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text('Night Owl', style: TextStyle(color: Colors.black)),
           backgroundColor: Colors.transparent,
@@ -138,15 +136,40 @@ class ProfileGrid extends StatelessWidget {
 
             //photos
             Expanded(
-                child: TabBarView(
-              children: [
-                FirstTab(),
-                
-              ],
-            )),
+              child:
+              DefaultTabController(
+              initialIndex: 1,
+              length: 2,
+              child: Scaffold(
+                appBar: AppBar(
+                  automaticallyImplyLeading: false,
+                  bottom: const TabBar(
+                    tabs: <Widget>[
+                      Tab(
+                        icon: Icon(Icons.grid_on_outlined),
+                      ),
+                      Tab(
+                        icon: Icon(Icons.location_pin),
+                      ),
+                    ],
+                  ),
+                ),
+                body: TabBarView(
+                  children: <Widget>[
+                    Center(
+                      child: FirstTab(),
+                    ),
+                    Center(
+                      child: Image.asset("assets/dummy_images/image10.png"),
+                    ),
+                  ],
+                ),
+              ),
+            ))
+            
           ],
         ),
-      ),
-    );
+      );
+    
   }
 }

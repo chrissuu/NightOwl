@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:night_owl/callScreen.dart';
 import 'package:night_owl/feed.dart';
-import 'package:night_owl/profile_grid.dart';
+import 'package:night_owl/profile_grid_temp.dart';
 import 'package:night_owl/start_screen.dart';
 
 class BottomNavigationBarExampleApp extends StatelessWidget {

@@ -32,9 +32,9 @@ class MyFeedScreenState extends State<FeedScreen> {
   void _addTask() {
     setState(() {
       Post temp = Post(
-          date: (DateTime.now().millisecondsSinceEpoch).toString(),
+          date:  "February 3rd, 9:20 pm",
           postID: (DateTime.now().millisecondsSinceEpoch).toString(),
-          postTitle: "First post\n" + "February 3rd, 9:20 pm");
+          postTitle: "amanda23"+ "                    ");
 
       postList.add(temp);
       print("test");
@@ -111,8 +111,14 @@ class MyFeedScreenState extends State<FeedScreen> {
                                             postList[postList.indexWhere((e) =>
                                                     e.postID == currPostID)]
                                                 .postTitle,
-                                            style: TextStyle(fontSize: 15.0),
+                                            style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),
                                           ),
+                                          Text(
+                                            postList[postList.indexWhere((e) =>
+                                                    e.postID == currPostID)]
+                                                .date,
+                                            style: TextStyle(fontSize: 15.0),
+                                          )
                                           
                                         ]),
                                       ),
@@ -154,7 +160,7 @@ class MyFeedScreenState extends State<FeedScreen> {
                         ],
                       );
                     }))),
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: FloatingActionButton.extended(
           onPressed: () async {
             Navigator.push(
               context,
@@ -162,8 +168,9 @@ class MyFeedScreenState extends State<FeedScreen> {
                   builder: (context) => const PhotoTakingScreenNoCam()),
             );
           },
-          tooltip: 'Increment',
-          child: const Icon(Icons.add),
+          backgroundColor: Colors.purple[600],
+          
+          label: Text("   start   ", style: TextStyle(fontSize:15,color: Colors.white)),
         ));
   }
 }
