@@ -1,9 +1,8 @@
 # Night Owl
 <img width="430" alt="Screenshot 2024-02-03 at 4 19 13 PM" src="https://github.com/chrissuu/NightOwl/assets/102528557/ae3e8fee-22c3-42de-b2d0-87d65517167a">
-"It’s push day"
 
-Night Owl is an app designe
-d with features to keep you safe on a night (or day) out. In case of an uncomfortable or potentially unsafe situation, the fake phone call feature provides a quick, non-escalatory excuse to remove yourself. 
+
+Night Owl is an app designed with features to keep you safe on a night (or day) out. In case of an uncomfortable or potentially unsafe situation, the fake phone call feature provides a quick, non-escalatory excuse to remove yourself. 
 
 It provides you the opportunity to discretely send a ping to your friends (your location and that you are in a potentially unsafe situation).
 
