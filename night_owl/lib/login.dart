@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:night_owl/profile_page.dart';
+import 'package:night_owl/feed.dart';
 
 void main() {
   runApp(const LoginPage());
@@ -49,9 +51,9 @@ class LoginPage extends StatelessWidget {
               hintText: "Username",
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(18),
-                  borderSide: BorderSide.none
-              ),
-              fillColor: const Color.fromARGB(255, 66, 39, 176).withOpacity(0.1),
+                  borderSide: BorderSide.none),
+              fillColor:
+                  const Color.fromARGB(255, 66, 39, 176).withOpacity(0.1),
               filled: true,
               prefixIcon: const Icon(Icons.person)),
         ),
@@ -71,6 +73,11 @@ class LoginPage extends StatelessWidget {
         const SizedBox(height: 10),
         ElevatedButton(
           onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FeedScreen(),
+                ));
           },
           style: ElevatedButton.styleFrom(
             shape: const StadiumBorder(),
@@ -89,7 +96,8 @@ class LoginPage extends StatelessWidget {
   _forgotPassword(context) {
     return TextButton(
       onPressed: () {},
-      child: const Text("Forgot password?",
+      child: const Text(
+        "Forgot password?",
         style: TextStyle(color: Color.fromARGB(255, 66, 39, 176)),
       ),
     );
@@ -101,10 +109,11 @@ class LoginPage extends StatelessWidget {
       children: [
         const Text("Dont have an account? "),
         TextButton(
-            onPressed: () {
-            },
-            child: const Text("Sign Up", style: TextStyle(color: Color.fromARGB(255, 66, 39, 176)),)
-        )
+            onPressed: () {},
+            child: const Text(
+              "Sign Up",
+              style: TextStyle(color: Color.fromARGB(255, 66, 39, 176)),
+            ))
       ],
     );
   }

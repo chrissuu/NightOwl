@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:night_owl/start_screen.dart';
 
 class callScreen extends StatefulWidget {
   const callScreen({super.key});
@@ -36,6 +37,7 @@ class _MyCallScreenState extends State<callScreen> {
     ]);
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: [SystemUiOverlay.bottom]);
+    _start();
   }
 
   void _start() {
@@ -146,25 +148,6 @@ class _MyCallScreenState extends State<callScreen> {
               SizedBox(height: 60),
             ],
           ),
-          if (_startScreen)
-            Column(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Container(color: Colors.black),
-                ),
-                Expanded(
-                  flex: 0,
-                  child: GestureDetector(
-                    onLongPress: _start,
-                    child: Container(
-                        width: double.infinity,
-                        height: 60,
-                        color: Colors.grey[900]),
-                  ),
-                )
-              ],
-            )
         ],
       ),
     );
