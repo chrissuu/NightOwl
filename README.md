@@ -8,7 +8,9 @@ It provides you the opportunity to discretely send a ping to your friends (your 
 
 With that in mind, Night Owl has an option that "starts your night out" and periodically sends you reminders to post a picture to your friends when you reach a new location and ensure that you are in a safe environment. 
 
-A project made by Jess Qu, Tiffany Louie, Melody Gao, Chris Su for TartanHacks 2024 (Hackathon based in Pittsburgh)
+
+
+A project made by Jessamine Qu, Tiffany Louie, Melody Gao, Chris Su for TartanHacks 2024 (Hackathon based in Pittsburgh)
 
 Demo link:
 https://www.figma.com/file/ECZmI3rc0dPuo5aC8oZU1p/Design-Presentation-Deck-(Community)?type=design&node-id=0-1&mode=design&t=6xQuPOOe1gQ1BDZL-0
