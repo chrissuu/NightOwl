@@ -20,15 +20,13 @@ class ProfileGrid extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 12.0),
               child: IconButton(
-                icon: Icon(Icons.menu, color: Colors.black),
-                onPressed: () {
-                  Navigator.push(
+                  icon: Icon(Icons.menu, color: Colors.black),
+                  onPressed: () {
+                    Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => ProfilePage(),
-                      ));
-                },
-              ),
+                      MaterialPageRoute(builder: (context) => ProfilePage()),
+                    );
+                  }),
             ),
           ],
         ),

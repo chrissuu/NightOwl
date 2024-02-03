@@ -10,9 +10,10 @@ class FirstTab extends StatelessWidget {
       itemBuilder: (context, index) => Padding(
         padding: const EdgeInsets.all(2.0),
         child: Image.asset(
-            'lib/dummy_images/image' + (index + 1).toString() + '.jpg'),
+            'assets/dummy_images/image' + (index + 1).toString() + '.png'),
         // color: Colors.grey[200],
       ),
     );
   }
 }
+//night_owl/assets/dummy_images/image1.png

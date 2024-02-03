@@ -19,16 +19,15 @@ class _ProfilePageState extends State<ProfilePage> {
     final user = UserPreferences.myUser;
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Settings',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+        ),
+      ),
       body: Center(
         child: Container(
             child: ListView(children: [
-          const SizedBox(height: 24),
-          Center(
-            child: Text(
-              "Settings",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-            ),
-          ),
           Container(
               width:
                   MediaQuery.of(context).size.width * 0.90, //90% screen width
@@ -76,10 +75,9 @@ class _ProfilePageState extends State<ProfilePage> {
         child: ElevatedButton(
           onPressed: () {
             Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => EditProfilePage(),
-                ));
+              context,
+              MaterialPageRoute(builder: (context) => EditProfilePage()),
+            );
           },
           child: const Text(
             "Edit",

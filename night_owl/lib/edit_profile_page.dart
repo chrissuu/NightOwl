@@ -62,11 +62,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       0.05, // 80% of screen height
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ProfilePage(),
-                          ));
+                      Navigator.pop(context);
                     },
                     child: const Text(
                       "Save",

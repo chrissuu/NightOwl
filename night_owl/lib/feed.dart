@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
+import 'package:night_owl/photo_no_cam.dart';
+
 class FeedScreen extends StatefulWidget {
   const FeedScreen({
     super.key,
@@ -126,16 +128,21 @@ class MyFeedScreenState extends State<FeedScreen> {
                                       height:
                                           MediaQuery.of(context).size.height *
                                               0.5,
-                                      child: Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
+                                      child: InkWell(
+                                        child: Container(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
                                                 0.75,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(15.0),
-                                            color: Colors.white,
-                                            border: Border.all(
-                                                color: Colors.black)),
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(15.0),
+                                                color: Colors.white,
+                                                border: Border.all(
+                                                    color: Colors.black)),
+                                            child: Image.asset(
+                                                'assets/dummy_images/image1.jpeg',
+                                                fit: BoxFit.cover)),
                                       ),
                                     ),
                                     SizedBox(height: 20),
@@ -154,7 +161,11 @@ class MyFeedScreenState extends State<FeedScreen> {
                     }))),
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            _addTask();
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const PhotoTakingScreenNoCam()),
+            );
           },
           tooltip: 'Increment',
           child: const Icon(Icons.add),
