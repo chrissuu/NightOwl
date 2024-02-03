@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:night_owl/feed.dart';
 import 'package:night_owl/callScreen.dart';
+import 'package:night_owl/login.dart';
+import 'package:night_owl/profile_page.dart';
+import 'package:night_owl/signup.dart';
+import 'package:night_owl/upload_photo.dart';
 
 void main() {
   runApp(const MyApp());

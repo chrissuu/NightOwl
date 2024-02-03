@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:audioplayers/audioplayers.dart';
+import 'package:assets_audio_player/assets_audio_player.dart';
 
 class callScreen extends StatefulWidget {
   const callScreen({super.key});
@@ -12,7 +12,7 @@ class callScreen extends StatefulWidget {
 }
 
 class _MyCallScreenState extends State<callScreen> {
-  final audioPlayer = AudioPlayer();
+  final player = AssetsAudioPlayer();
   Color _backgroundColor = Color(0xFF163345);
   Random random = Random();
   String _caller = "";
@@ -54,19 +54,21 @@ class _MyCallScreenState extends State<callScreen> {
   void _ring() async {
     _ringing = true;
     do {
-      await audioPlayer.play(AssetSource(
-          'NightOwl/night_owl/assets/7120-download-iphone-6-original-ringtone-42676.mp3'));
+      await player.open(
+        Audio(
+            "assets/audio/7120-download-iphone-6-original-ringtone-42676.mp3"),
+      );
       await Future.delayed(Duration(seconds: 3));
     } while (_ringing);
   }
 
   void _stopRing() {
-    audioPlayer?.stop();
+    player?.stop();
     _ringing = false;
   }
 
   void _reset() {
-    audioPlayer?.stop();
+    player?.stop();
     _ringing = false;
     setState(() {
       _startScreen = true;
@@ -85,10 +87,10 @@ class _MyCallScreenState extends State<callScreen> {
               Text(
                 _caller,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 50),
+                style: TextStyle(fontSize: 50, color: Colors.white),
               ),
               Text(
-                "$areaCode $prefix $lastFour",
+                "mobile",
                 style: TextStyle(fontSize: 18, color: Colors.grey),
               ),
               SizedBox(height: MediaQuery.of(context).size.height / 2.2),
@@ -98,13 +100,13 @@ class _MyCallScreenState extends State<callScreen> {
                   Column(
                     children: [
                       Icon(Icons.alarm, color: Colors.white, size: 30),
-                      Text("Remind Me"),
+                      Text("Remind Me", style: TextStyle(color: Colors.white)),
                     ],
                   ),
                   Column(
                     children: [
                       Icon(Icons.message, color: Colors.white, size: 30),
-                      Text("Message"),
+                      Text("Message", style: TextStyle(color: Colors.white)),
                     ],
                   )
                 ],
@@ -121,9 +123,10 @@ class _MyCallScreenState extends State<callScreen> {
                         child: FloatingActionButton(
                             child: Icon(Icons.call_end, size: 34),
                             backgroundColor: Colors.red,
+                            shape: CircleBorder(),
                             onPressed: null),
                       ),
-                      Text("Decline"),
+                      Text("Decline", style: TextStyle(color: Colors.white)),
                     ],
                   ),
                   Column(
@@ -132,9 +135,10 @@ class _MyCallScreenState extends State<callScreen> {
                         child: FloatingActionButton(
                             child: Icon(Icons.phone, size: 34),
                             backgroundColor: Colors.green,
+                            shape: CircleBorder(),
                             onPressed: null),
                       ),
-                      Text("Accept"),
+                      Text("Accept", style: TextStyle(color: Colors.white)),
                     ],
                   ),
                 ],
