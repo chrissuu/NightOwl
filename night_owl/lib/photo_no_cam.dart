@@ -37,7 +37,22 @@ class _MyPhotoTakingScreenState extends State<PhotoTakingScreenNoCam> {
               width: 2,
             ),
           ),
-          child: Container(),
+          child: InkWell(
+                    child: Container(
+                        width: MediaQuery.of(context)
+                                .size
+                                .width *
+                            0.75,
+                        decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.circular(15.0),
+                            color: Colors.white,
+                            border: Border.all(
+                                color: Colors.black)),
+                        child: Image.asset(
+                            'assets/dummy_images/image1.png',
+                            fit: BoxFit.cover)),
+                  ),
         ),
       ),
       Positioned(

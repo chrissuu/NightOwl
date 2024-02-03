@@ -107,7 +107,7 @@ class ProfileGrid extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          '9',
+                          '7',
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -127,14 +127,14 @@ class ProfileGrid extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 25,
+              height: 40,
             ),
 
             //bio
-            Text(
-              'Temp Bio Here',
-              style: TextStyle(color: Colors.grey[700]),
-            ),
+            // Text(
+            //   'Temp Bio Here',
+            //   style: TextStyle(color: Colors.grey[700]),
+            // ),
 
             //photos
             Expanded(

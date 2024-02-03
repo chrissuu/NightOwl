@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
-
 import 'package:night_owl/photo_no_cam.dart';
 
 class FeedScreen extends StatefulWidget {
@@ -35,7 +34,7 @@ class MyFeedScreenState extends State<FeedScreen> {
       Post temp = Post(
           date: (DateTime.now().millisecondsSinceEpoch).toString(),
           postID: (DateTime.now().millisecondsSinceEpoch).toString(),
-          postTitle: "First post");
+          postTitle: "First post\n" + "February 3rd, 9:20 pm");
 
       postList.add(temp);
       print("test");
@@ -57,6 +56,7 @@ class MyFeedScreenState extends State<FeedScreen> {
 
   @override
   Widget build(BuildContext context) {
+    _addTask();
     return Scaffold(
         body: Center(
             child: Container(
@@ -113,12 +113,7 @@ class MyFeedScreenState extends State<FeedScreen> {
                                                 .postTitle,
                                             style: TextStyle(fontSize: 15.0),
                                           ),
-                                          Text(
-                                            postList[postList.indexWhere((e) =>
-                                                    e.postID == currPostID)]
-                                                .date,
-                                            style: TextStyle(fontSize: 15.0),
-                                          )
+                                          
                                         ]),
                                       ),
                                     ),
@@ -141,7 +136,7 @@ class MyFeedScreenState extends State<FeedScreen> {
                                                 border: Border.all(
                                                     color: Colors.black)),
                                             child: Image.asset(
-                                                'assets/dummy_images/image1.jpeg',
+                                                'assets/dummy_images/image2.png',
                                                 fit: BoxFit.cover)),
                                       ),
                                     ),
